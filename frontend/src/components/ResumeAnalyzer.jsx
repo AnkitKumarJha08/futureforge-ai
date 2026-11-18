@@ -1,0 +1,7 @@
+import { useState } from "react";
+import API from "../services/api";
+export default function ResumeAnalyzer() {
+ const [file,setFile]=useState(null),[analysis,setAnalysis]=useState(null),[error,setError]=useState(''),[busy,setBusy]=useState(false);
+ async function analyze(e){e.preventDefault();setError('');setAnalysis(null);if(!file){setError('Select a PDF or TXT resume first.');return;}const body=new FormData();body.append('resume',file);setBusy(true);try{const {data}=await API.post('/resume/analyze',body,{headers:{'Content-Type':'multipart/form-data'}});setAnalysis(data);}catch(err){setError(err.response?.data?.message||'Analysis failed. Please log in and ensure the API is running.');}finally{setBusy(false);}}
+ return <section className="assessment-card"><h2>📄 Resume & ATS Analyzer</h2><form onSubmit={analyze}><input type="file" accept=".pdf,.txt" onChange={e=>setFile(e.target.files?.[0]||null)}/><button disabled={busy} style={{marginTop:15}}>{busy?'Analyzing…':'Analyze Resume'}</button></form>{error&&<p role="alert">{error}</p>}{analysis&&<div className="career-report"><h3>ATS Score: {analysis.score}/100</h3><p>Detected skills: {analysis.skills.join(', ')||'No skills detected'}</p><p>Word count: {analysis.word_count}</p><h4>Section check</h4><ul>{Object.entries(analysis.sections).map(([k,v])=><li key={k}>{v?'✅':'❌'} {k}</li>)}</ul><h4>Suggestions</h4><ul>{analysis.suggestions.map(x=><li key={x}>{x}</li>)}</ul></div>}</section>
+}

@@ -1,0 +1,175 @@
+
+/* ==========================================
+   FutureForge AI — Global Light Theme
+   File: frontend/src/index.css
+   ========================================== */
+
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #111827;
+  background: #ffffff;
+  color-scheme: light;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --text-primary: #111827;
+  --text-secondary: #374151;
+  --page-background: #ffffff;
+  --card-background: #ffffff;
+  --border-color: #e5e7eb;
+  --primary-color: #0284c7;
+  --primary-hover: #0369a1;
+  --focus-ring: rgba(2, 132, 199, 0.18);
+  --card-shadow: 0 4px 18px rgba(15, 23, 42, 0.07);
+}
+
+/* Universal reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  min-height: 100%;
+  background: #ffffff;
+  color: #111827;
+  scroll-behavior: smooth;
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: #ffffff;
+  color: #111827;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+}
+
+/* Main React application */
+#root {
+  width: 100%;
+  max-width: 1126px;
+  min-height: 100vh;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+
+  text-align: center;
+  color: #111827;
+  background: #ffffff;
+
+  border-left: 1px solid #e5e7eb;
+  border-right: 1px solid #e5e7eb;
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #111827;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.3;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  letter-spacing: -1px;
+  margin: 28px 0;
+}
+
+h2 {
+  font-size: 1.35rem;
+  margin: 0 0 12px;
+}
+
+h3 {
+  font-size: 1.15rem;
+}
+
+p {
+  color: #374151;
+  margin-top: 0;
+}
+
+/* Links */
+a {
+  color: #0369a1;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #0284c7;
+  text-decoration: underline;
+}
+
+/* Form controls inherit the application font */
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+/* Code and counters */
+code,
+.counter {
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+
+code {
+  display: inline-flex;
+  padding: 4px 8px;
+  border-radius: 5px;
+  background: #f3f4f6;
+  color: #111827;
+  font-size: 0.9rem;
+}
+
+/* Safari and small-screen compatibility */
+@media (max-width: 1024px) {
+  #root {
+    border-left: 0;
+    border-right: 0;
+  }
+
+  h1 {
+    margin: 20px 0;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    font-size: 14px;
+  }
+
+  h1 {
+    letter-spacing: -0.5px;
+  }
+}
+
+/* Accessibility: respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
