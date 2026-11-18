@@ -20,3 +20,20 @@ uploads/
 .vscode/
 .idea/
 *.log
+
+# Secrets and environment files
+.env
+.env.*
+!.env.example
+
+# Databases and local data
+*.db
+*.sqlite
+*.sqlite3
+instance/
+uploads/
+
+# Dependencies and system files
+node_modules/
+__pycache__/
+.DS_Store
